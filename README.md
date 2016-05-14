@@ -1,8 +1,7 @@
 # Navi
-Rx-based Event bus for Android.
-
-Usage:
-=====
+Rx-based Event bus for Android. <br/>
+<h3><b>Hey, Listen! </b></h3>
+<h4>Usage:</h4>
 
 ``` 
 class Kokiri extends AppCompatActivity{
