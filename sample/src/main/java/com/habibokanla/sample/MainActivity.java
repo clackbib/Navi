@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navi.post(new FabEvent(view));
+                navi.hey(new FabEvent(view));
             }
         });
     }
@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        navi.register(this);
+        navi.call(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        navi.unRegister(this);
+        navi.swat(this);
     }
 
     @Override

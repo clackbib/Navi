@@ -46,9 +46,9 @@ public class Navi {
 
     //Todo: Thread subscriptions.
 
-    public void register(Object object) {
+    public void call(Object object) {
         if (subscriptionHashMap.containsKey(object)) {
-            throw new IllegalStateException("Already registered");
+            throw new IllegalStateException("Already flying around :)");
         }
         Method[] methods = object.getClass().getDeclaredMethods();
         List<Method> executableMethods = new ArrayList<>();
@@ -56,7 +56,7 @@ public class Navi {
             for (Annotation annotation : method.getDeclaredAnnotations()) {
                 if (annotation.annotationType() == Listen.class) {
                     if (method.getParameterTypes().length != 1) {
-                        throw new IllegalStateException("Listen annotated method should only have 1 param");
+                        throw new IllegalStateException("Listen annotated method should only have 1 parameter");
                     } else {
                         executableMethods.add(method);
                     }
@@ -67,16 +67,16 @@ public class Navi {
         subscriptionHashMap.put(object, bus.subscribe(new EventListener(object, executableMethods)));
     }
 
-    public void post(Object event) {
+    public void hey(Object event) {
         bus.onNext(event);
     }
 
-    public void unRegister(Object object) {
+    public void swat(Object object) {
         Subscription subscription = subscriptionHashMap.remove(object);
         if (subscription != null) {
             subscription.unsubscribe();
         } else {
-            throw new IllegalStateException("Couldn't find subscription, did you call register?");
+            throw new IllegalStateException("I can't help you yet, are you a Kokiri?");
         }
     }
 }

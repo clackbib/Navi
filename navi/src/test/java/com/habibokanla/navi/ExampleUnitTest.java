@@ -30,10 +30,10 @@ public class ExampleUnitTest {
     public void testUnregister() {
         String mockEvent = "Habib";
         MockListener listener = new MockListener();
-        navi.register(listener);
-        navi.unRegister(listener);
+        navi.call(listener);
+        navi.swat(listener);
 
-        navi.post(mockEvent);
+        navi.hey(mockEvent);
 
         assertTrue(listener.invocationCount == 0);
     }
@@ -41,34 +41,34 @@ public class ExampleUnitTest {
     @Test(expected = IllegalStateException.class)
     public void testUnregister2() {
         MockListener listener = new MockListener();
-        navi.register(listener);
-        navi.unRegister(listener);
-        navi.unRegister(listener);
+        navi.call(listener);
+        navi.swat(listener);
+        navi.swat(listener);
     }
 
     @Test(expected = IllegalStateException.class)
     public void testUnregister3() {
         MockListener listener = new MockListener();
-        navi.unRegister(listener);
+        navi.swat(listener);
     }
 
     @Test(expected = IllegalStateException.class)
     public void testRegister() {
         MockListener listener = new MockListener();
-        navi.register(listener);
-        navi.register(listener);
+        navi.call(listener);
+        navi.call(listener);
     }
 
     @Test
     public void invocationTest() throws Exception {
         String mockEvent = "Habib";
         MockListener listener = new MockListener();
-        navi.register(listener);
+        navi.call(listener);
 
-        navi.post(mockEvent);
-        navi.post(mockEvent);
+        navi.hey(mockEvent);
+        navi.hey(mockEvent);
 
-        navi.unRegister(listener);
+        navi.swat(listener);
 
         assertTrue(listener.invocationCount == 2);
 
@@ -78,13 +78,13 @@ public class ExampleUnitTest {
     public void invocationTest2() throws Exception {
         String mockEvent = "Habib";
         MockListener listener = new MockListener();
-        navi.register(listener);
+        navi.call(listener);
 
-        navi.post(mockEvent);
+        navi.hey(mockEvent);
 
-        navi.unRegister(listener);
+        navi.swat(listener);
 
-        navi.post(mockEvent);
+        navi.hey(mockEvent);
 
         assertTrue(listener.invocationCount == 1);
 
