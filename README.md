@@ -3,7 +3,7 @@ Rx-based Event bus for Android. <br/>
 <h3><b>Hey, Listen! </b></h3>
 <h4>Usage:</h4>
 
-``` 
+```java
 class Kokiri extends AppCompatActivity{
   Navi navi = new Navi();
   ....
@@ -31,3 +31,4 @@ class Kokiri extends AppCompatActivity{
   
 
 }
+```
